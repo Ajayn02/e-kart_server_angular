@@ -26,6 +26,7 @@ routes.get('/cartlist',jwt,cartController.getCart)
 routes.delete('/delcart/:id',jwt,cartController.removeCart)
 routes.get('/increcart/:id',jwt,cartController.increaseQuantity)
 routes.get('/decrecart/:id',jwt,cartController.decreseaQuantity)
+routes.delete('/emptycart',jwt,cartController.emptyCart)
 
 
 module.exports=routes

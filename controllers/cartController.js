@@ -23,6 +23,8 @@ exports.addToCart = async (req, res) => {
 
 }
 
+
+
 exports.getCart = async (req, res) => {
     try {
         const userId = req.payload
@@ -83,4 +85,16 @@ exports.decreseaQuantity = async (req, res) => {
         res.status(400).json(err)
     }
 
+}
+
+exports.emptyCart=async(req,res)=>{
+    try{
+        const userId=req.payload
+    const val=await carts.deleteMany({userId})
+    res.status(200).json(val)
+    }
+    catch (err) {
+        console.log(err);
+        res.status(400).json(err)
+    }
 }
